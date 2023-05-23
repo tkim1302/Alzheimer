@@ -17,7 +17,7 @@ class ViewController: UIViewController {
         if(homeAdrressLabel.text == nil){
             homeAdrressLabel.text = "No home address is set yet"
         }
-        homeAdrressLabel.text = "Home"
+        homeAdrressLabel.text = "Homed" 
     }
 
 
