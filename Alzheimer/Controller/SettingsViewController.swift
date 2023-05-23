@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class MainViewController: UIViewController {
+class SettingsViewController: UIViewController {
 
     @IBOutlet weak var homeAddress: UILabel!
     
