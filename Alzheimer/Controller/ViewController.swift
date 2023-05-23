@@ -10,7 +10,9 @@ import UIKit
 class ViewController: UIViewController {
 
     
-    @IBOutlet weak var information: UILabel!
+    @IBOutlet weak var informationLabel: UILabel!
+    
+    var name = ""
     var homeAddress = ""
     var emergencyContact = ""
 
@@ -18,12 +20,23 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
-        if(information.text == nil){
-            information.text = "No home address is set yet"
+        
+        if(name == ""){
+            informationLabel.text = "Not yet"
+        }else{
+            informationLabel.text = name
         }
-        information.text = "Homasded"
+        
     }
 
-
+    @IBAction func goToMemoryButton(_ sender: Any) {
+    }
+    
+    @IBAction func goToRepeatButton(_ sender: Any) {
+    }
+    
+    @IBAction func goToSettingsButton(_ sender: Any) {
+    }
+    
 }
 

@@ -15,7 +15,7 @@
 		2B05FA422A1B81FB004191D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B05FA402A1B81FB004191D2 /* LaunchScreen.storyboard */; };
 		2B05FA4F2A1B8E01004191D2 /* MemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05FA4E2A1B8E01004191D2 /* MemoryViewController.swift */; };
 		2B05FA512A1B8E1B004191D2 /* RepeatingTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05FA502A1B8E1B004191D2 /* RepeatingTaskViewController.swift */; };
-		2B05FA562A1B9402004191D2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05FA552A1B9402004191D2 /* SettingsViewController.swift */; };
+		2B6198472A1CD0510087F7AA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6198462A1CD0510087F7AA /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		2B05FA432A1B81FB004191D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B05FA4E2A1B8E01004191D2 /* MemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryViewController.swift; sourceTree = "<group>"; };
 		2B05FA502A1B8E1B004191D2 /* RepeatingTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTaskViewController.swift; sourceTree = "<group>"; };
-		2B05FA552A1B9402004191D2 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2B6198462A1CD0510087F7AA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +95,7 @@
 				2B05FA392A1B81FA004191D2 /* ViewController.swift */,
 				2B05FA4E2A1B8E01004191D2 /* MemoryViewController.swift */,
 				2B05FA502A1B8E1B004191D2 /* RepeatingTaskViewController.swift */,
-				2B05FA552A1B9402004191D2 /* SettingsViewController.swift */,
+				2B6198462A1CD0510087F7AA /* SettingsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -174,9 +174,9 @@
 				2B05FA3A2A1B81FA004191D2 /* ViewController.swift in Sources */,
 				2B05FA362A1B81FA004191D2 /* AppDelegate.swift in Sources */,
 				2B05FA382A1B81FA004191D2 /* SceneDelegate.swift in Sources */,
-				2B05FA562A1B9402004191D2 /* SettingsViewController.swift in Sources */,
 				2B05FA512A1B8E1B004191D2 /* RepeatingTaskViewController.swift in Sources */,
 				2B05FA4F2A1B8E01004191D2 /* MemoryViewController.swift in Sources */,
+				2B6198472A1CD0510087F7AA /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
