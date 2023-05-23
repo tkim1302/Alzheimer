@@ -21,7 +21,7 @@ class ViewController: UIViewController {
         if(information.text == nil){
             information.text = "No home address is set yet"
         }
-        information.text = "Home"
+        information.text = "Homasded"
     }
 
 
