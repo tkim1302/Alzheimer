@@ -13,6 +13,9 @@
 		2B05FA3D2A1B81FA004191D2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B05FA3B2A1B81FA004191D2 /* Main.storyboard */; };
 		2B05FA3F2A1B81FB004191D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B05FA3E2A1B81FB004191D2 /* Assets.xcassets */; };
 		2B05FA422A1B81FB004191D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B05FA402A1B81FB004191D2 /* LaunchScreen.storyboard */; };
+		2B05FA4F2A1B8E01004191D2 /* MemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05FA4E2A1B8E01004191D2 /* MemoryViewController.swift */; };
+		2B05FA512A1B8E1B004191D2 /* RepeatingTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05FA502A1B8E1B004191D2 /* RepeatingTaskViewController.swift */; };
+		2B05FA562A1B9402004191D2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05FA552A1B9402004191D2 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		2B05FA3E2A1B81FB004191D2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B05FA412A1B81FB004191D2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2B05FA432A1B81FB004191D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2B05FA4E2A1B8E01004191D2 /* MemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryViewController.swift; sourceTree = "<group>"; };
+		2B05FA502A1B8E1B004191D2 /* RepeatingTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTaskViewController.swift; sourceTree = "<group>"; };
+		2B05FA552A1B9402004191D2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,42 @@
 		2B05FA342A1B81FA004191D2 /* Alzheimer */ = {
 			isa = PBXGroup;
 			children = (
+				2B05FA492A1B8D8C004191D2 /* Model */,
+				2B05FA4B2A1B8DA6004191D2 /* Controller */,
+				2B05FA4A2A1B8D97004191D2 /* View */,
 				2B05FA352A1B81FA004191D2 /* AppDelegate.swift */,
 				2B05FA372A1B81FA004191D2 /* SceneDelegate.swift */,
-				2B05FA392A1B81FA004191D2 /* ViewController.swift */,
-				2B05FA3B2A1B81FA004191D2 /* Main.storyboard */,
 				2B05FA3E2A1B81FB004191D2 /* Assets.xcassets */,
 				2B05FA402A1B81FB004191D2 /* LaunchScreen.storyboard */,
 				2B05FA432A1B81FB004191D2 /* Info.plist */,
 			);
 			path = Alzheimer;
+			sourceTree = "<group>";
+		};
+		2B05FA492A1B8D8C004191D2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		2B05FA4A2A1B8D97004191D2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				2B05FA3B2A1B81FA004191D2 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		2B05FA4B2A1B8DA6004191D2 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				2B05FA392A1B81FA004191D2 /* ViewController.swift */,
+				2B05FA4E2A1B8E01004191D2 /* MemoryViewController.swift */,
+				2B05FA502A1B8E1B004191D2 /* RepeatingTaskViewController.swift */,
+				2B05FA552A1B9402004191D2 /* MainViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,6 +174,9 @@
 				2B05FA3A2A1B81FA004191D2 /* ViewController.swift in Sources */,
 				2B05FA362A1B81FA004191D2 /* AppDelegate.swift in Sources */,
 				2B05FA382A1B81FA004191D2 /* SceneDelegate.swift in Sources */,
+				2B05FA562A1B9402004191D2 /* MainViewController.swift in Sources */,
+				2B05FA512A1B8E1B004191D2 /* RepeatingTaskViewController.swift in Sources */,
+				2B05FA4F2A1B8E01004191D2 /* MemoryViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
