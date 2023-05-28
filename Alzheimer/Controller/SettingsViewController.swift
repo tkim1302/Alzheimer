@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController{
+class SettingsViewController: UIViewController, UITextFieldDelegate{
     
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -32,6 +32,7 @@ class SettingsViewController: UIViewController{
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboard()
         bloodTypePicker.dataSource = self
         bloodTypePicker.delegate = self
         dobButton.datePickerMode = .date
@@ -41,8 +42,6 @@ class SettingsViewController: UIViewController{
         dobButton.addTarget(self, action: #selector(dateOfBirthButton(_:)), for: .valueChanged)
     }
 
-    
-
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "goBackToMain"{
@@ -50,17 +49,43 @@ class SettingsViewController: UIViewController{
             saveUserData()
             let dateFormatter = DateFormatter()
             let selectedBType = bloodTypePicker.selectedRow(inComponent: 0)
-            if(name.text!.isEmpty){ //if user didn't input their name, the playerName will be stored as "Anonymous"
-                VC.name = "Anonymous"
-            }else{
-                VC.name = name.text!
-            }
-            VC.homeAddress = homeAddress.text!
-            VC.emergencyContact = emergencyContact.text!
             
-            dateFormatter.dateStyle = .short
-            VC.dob = dateFormatter.string(from: dobButton.date)
-            VC.bloodType = bloodTypes[selectedBType]
+            if name.text?.isEmpty ?? true {
+                let alertController = UIAlertController(title: "Empty Name", message: "Please enter a name.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                present(alertController, animated: true, completion: nil)
+                return
+            }
+            if homeAddress.text?.isEmpty ?? true {
+                let alertController = UIAlertController(title: "Empty Home Address", message: "Please enter a home address.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                present(alertController, animated: true, completion: nil)
+                return
+            }
+            if emergencyContact.text?.isEmpty ?? true {
+                let alertController = UIAlertController(title: "Empty Emergency Contact", message: "Please enter an emergency contact.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                present(alertController, animated: true, completion: nil)
+                return
+            }
+           
+            UserDefaults.standard.set(name.text, forKey: "name")
+            UserDefaults.standard.set(homeAddress.text, forKey: "homeAddress")
+            UserDefaults.standard.set(emergencyContact.text, forKey: "emergencyContact")
+            UserDefaults.standard.set(dateFormatter.string(from: dobButton.date), forKey: "dob")
+            UserDefaults.standard.set(bloodTypes[selectedBType], forKey: "bloodType")
+            
+            
+            
+//            VC.homeAddress = homeAddress.text!
+//            VC.emergencyContact = emergencyContact.text!
+//            
+//            dateFormatter.dateStyle = .short
+//            VC.dob = dateFormatter.string(from: dobButton.date)
+//            VC.bloodType = bloodTypes[selectedBType]
         }
     }
    
@@ -92,6 +117,7 @@ class SettingsViewController: UIViewController{
         userDefaults.synchronize()
     }
     
+    
 }
 
 extension SettingsViewController: UIPickerViewDataSource{
@@ -107,5 +133,17 @@ extension SettingsViewController: UIPickerViewDataSource{
 extension SettingsViewController: UIPickerViewDelegate{
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return bloodTypes[row]
+    }
+}
+
+extension UIViewController {
+    func hideKeyboard() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        view.addGestureRecognizer(tap)
+
+    }
+
+   @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
 }

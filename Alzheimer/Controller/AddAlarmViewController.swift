@@ -21,6 +21,7 @@ class AddAlarmViewController: UIViewController{
         view.backgroundColor = .white
         timePicker.datePickerMode = .time
         //label.text  =  models[0]
+        self.hideKeyboard()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -32,6 +33,14 @@ class AddAlarmViewController: UIViewController{
             let timeString = formatter.string(from: timePicker.date)
             var timeModels = userDefaults.stringArray(forKey: "Models") ?? []
             timeModels.append(timeString)
+            
+            if taskInputField.text?.isEmpty ?? true {
+                let alertController = UIAlertController(title: "Empty Task", message: "Please enter a task.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+                alertController.addAction(okAction)
+                present(alertController, animated: true, completion: nil)
+                return
+            }
             
             let taskString = taskInputField.text!
             var taskModels = userDefaults.stringArray(forKey: "Tasks") ?? []
@@ -52,35 +61,3 @@ class AddAlarmViewController: UIViewController{
 }
 
 
-//            let selectedBType = bloodTypePicker.selectedRow(inComponent: 0)
-//            if(name.text!.isEmpty){ //if user didn't input their name, the playerName will be stored as "Anonymous"
-//                VC.name = "Anonymous"
-//            }else{
-//                VC.name = name.text!
-//            }
-//            VC.homeAddress = homeAddress.text!
-//            VC.emergencyContact = emergencyContact.text!
-            
-           // dateFormatter.datePickerMode = .time
-
-
-//            if let models = UserDefaults.standard.array(forKey: "Models") as? [String] {
-//                self.models = models
-//            }
-            
-            
-//            if(models.count == 0){
-//                models.append(formatter.string(from: timePicker.date))
-//               // userDefaults.set(models[0], forKey: "AlarmTime0")
-//                UserDefaults.standard.set(models, forKey: "Models")
-//                userDefaults.synchronize()
-//                label.text = models[0]
-//            }else{
-//                for i in 1..<VC.models.count + 1{
-//                    models.append(formatter.string(from: timePicker.date))
-//                //    userDefaults.set(VC.models[i], forKey: "AlarmTime\(i)")
-//                    UserDefaults.standard.set(models, forKey: "Models")
-//                    userDefaults.synchronize()
-//                    label.text = "model \(i) : \(models[i])"
-//                }
-//            }
