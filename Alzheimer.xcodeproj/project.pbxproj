@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1354FF652A1CF89B00C331A8 /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1354FF642A1CF89B00C331A8 /* Album.swift */; };
+		13F51FC72A1F9A9600388951 /* AlzheimerData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 13F51FC52A1F9A9600388951 /* AlzheimerData.xcdatamodeld */; };
+		13F51FD22A20367D00388951 /* AlbumCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13F51FD02A20367D00388951 /* AlbumCollectionViewCell.swift */; };
+		13F51FD32A20367D00388951 /* AlbumCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13F51FD12A20367D00388951 /* AlbumCollectionViewCell.xib */; };
+		13FA39B02A20D16C00368A67 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FA39AF2A20D16C00368A67 /* PhotoViewController.swift */; };
+		13FA39B32A20FC7200368A67 /* PhotoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13FA39B12A20FC7200368A67 /* PhotoCollectionViewCell.swift */; };
+		13FA39B42A20FC7200368A67 /* PhotoCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 13FA39B22A20FC7200368A67 /* PhotoCollectionViewCell.xib */; };
 		2B05FA362A1B81FA004191D2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05FA352A1B81FA004191D2 /* AppDelegate.swift */; };
 		2B05FA382A1B81FA004191D2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05FA372A1B81FA004191D2 /* SceneDelegate.swift */; };
 		2B05FA3A2A1B81FA004191D2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05FA392A1B81FA004191D2 /* ViewController.swift */; };
@@ -20,6 +27,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1354FF642A1CF89B00C331A8 /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		13F51FC62A1F9A9600388951 /* AlzheimerData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AlzheimerData.xcdatamodel; sourceTree = "<group>"; };
+		13F51FD02A20367D00388951 /* AlbumCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCollectionViewCell.swift; sourceTree = "<group>"; };
+		13F51FD12A20367D00388951 /* AlbumCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AlbumCollectionViewCell.xib; sourceTree = "<group>"; };
+		13FA39AF2A20D16C00368A67 /* PhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		13FA39B12A20FC7200368A67 /* PhotoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCollectionViewCell.swift; sourceTree = "<group>"; };
+		13FA39B22A20FC7200368A67 /* PhotoCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhotoCollectionViewCell.xib; sourceTree = "<group>"; };
 		2B05FA322A1B81FA004191D2 /* Alzheimer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Alzheimer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2B05FA352A1B81FA004191D2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2B05FA372A1B81FA004191D2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -46,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1354FF632A1CF86500C331A8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				1354FF642A1CF89B00C331A8 /* Album.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		2B05FA292A1B81FA004191D2 = {
 			isa = PBXGroup;
 			children = (
@@ -65,8 +87,11 @@
 		2B05FA342A1B81FA004191D2 /* Alzheimer */ = {
 			isa = PBXGroup;
 			children = (
+				13F51FC52A1F9A9600388951 /* AlzheimerData.xcdatamodeld */,
+				1354FF632A1CF86500C331A8 /* Model */,
+
 				2BD2F9C72A2466FE00981E61 /* Alzheimer.entitlements */,
-				2B05FA492A1B8D8C004191D2 /* Model */,
+
 				2B05FA4B2A1B8DA6004191D2 /* Controller */,
 				2B05FA4A2A1B8D97004191D2 /* View */,
 				2B05FA352A1B81FA004191D2 /* AppDelegate.swift */,
@@ -74,15 +99,12 @@
 				2B05FA3E2A1B81FB004191D2 /* Assets.xcassets */,
 				2B05FA402A1B81FB004191D2 /* LaunchScreen.storyboard */,
 				2B05FA432A1B81FB004191D2 /* Info.plist */,
+				13F51FD02A20367D00388951 /* AlbumCollectionViewCell.swift */,
+				13F51FD12A20367D00388951 /* AlbumCollectionViewCell.xib */,
+				13FA39B12A20FC7200368A67 /* PhotoCollectionViewCell.swift */,
+				13FA39B22A20FC7200368A67 /* PhotoCollectionViewCell.xib */,
 			);
 			path = Alzheimer;
-			sourceTree = "<group>";
-		};
-		2B05FA492A1B8D8C004191D2 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		2B05FA4A2A1B8D97004191D2 /* View */ = {
@@ -100,6 +122,7 @@
 				2B05FA4E2A1B8E01004191D2 /* MemoryViewController.swift */,
 				2B05FA502A1B8E1B004191D2 /* RepeatingTaskViewController.swift */,
 				2B6198462A1CD0510087F7AA /* SettingsViewController.swift */,
+				13FA39AF2A20D16C00368A67 /* PhotoViewController.swift */,
 				2B61984D2A20C9660087F7AA /* AddAlarmViewController.swift */,
 			);
 			path = Controller;
@@ -163,6 +186,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13F51FD32A20367D00388951 /* AlbumCollectionViewCell.xib in Resources */,
+				13FA39B42A20FC7200368A67 /* PhotoCollectionViewCell.xib in Resources */,
 				2B05FA422A1B81FB004191D2 /* LaunchScreen.storyboard in Resources */,
 				2B05FA3F2A1B81FB004191D2 /* Assets.xcassets in Resources */,
 				2B05FA3D2A1B81FA004191D2 /* Main.storyboard in Resources */,
@@ -176,13 +201,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13F51FD22A20367D00388951 /* AlbumCollectionViewCell.swift in Sources */,
 				2B05FA3A2A1B81FA004191D2 /* ViewController.swift in Sources */,
 				2B05FA362A1B81FA004191D2 /* AppDelegate.swift in Sources */,
 				2B61984E2A20C9660087F7AA /* AddAlarmViewController.swift in Sources */,
 				2B05FA382A1B81FA004191D2 /* SceneDelegate.swift in Sources */,
 				2B05FA512A1B8E1B004191D2 /* RepeatingTaskViewController.swift in Sources */,
 				2B05FA4F2A1B8E01004191D2 /* MemoryViewController.swift in Sources */,
+				13F51FC72A1F9A9600388951 /* AlzheimerData.xcdatamodeld in Sources */,
+				1354FF652A1CF89B00C331A8 /* Album.swift in Sources */,
 				2B6198472A1CD0510087F7AA /* SettingsViewController.swift in Sources */,
+				13FA39B32A20FC7200368A67 /* PhotoCollectionViewCell.swift in Sources */,
+				13FA39B02A20D16C00368A67 /* PhotoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +360,7 @@
 				CODE_SIGN_ENTITLEMENTS = Alzheimer/Alzheimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J5ZHQD5WJP;
+				DEVELOPMENT_TEAM = USRHW736C8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Alzheimer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -338,13 +368,14 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = a.Alzheimer;
+				PRODUCT_BUNDLE_IDENTIFIER = a.Alzheimera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -360,7 +391,7 @@
 				CODE_SIGN_ENTITLEMENTS = Alzheimer/Alzheimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = J5ZHQD5WJP;
+				DEVELOPMENT_TEAM = USRHW736C8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Alzheimer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -368,13 +399,14 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = a.Alzheimer;
+				PRODUCT_BUNDLE_IDENTIFIER = a.Alzheimera;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -404,6 +436,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		13F51FC52A1F9A9600388951 /* AlzheimerData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				13F51FC62A1F9A9600388951 /* AlzheimerData.xcdatamodel */,
+			);
+			currentVersion = 13F51FC62A1F9A9600388951 /* AlzheimerData.xcdatamodel */;
+			path = AlzheimerData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 2B05FA2A2A1B81FA004191D2 /* Project object */;
 }
