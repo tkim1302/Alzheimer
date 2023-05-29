@@ -4,9 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,45 +17,42 @@
                 <rect key="frame" x="0.0" y="0.0" width="150" height="220"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IVu-8z-BMt">
-                        <rect key="frame" x="5" y="191" width="87" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                        <color key="textColor" systemColor="systemOrangeColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EPi-PO-3n1">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HED-Da-JtR">
                         <rect key="frame" x="0.0" y="0.0" width="150" height="180"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xA4-IP-HJN">
-                        <rect key="frame" x="77" y="181" width="66" height="33"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4X4-VL-Zdk">
+                        <rect key="frame" x="4" y="180" width="75" height="40"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                        <color key="textColor" red="0.45674021200037751" green="0.87568896261092721" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="volume.2.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pPi-Ez-m0V">
+                        <rect key="frame" x="113" y="189" width="24" height="21"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </imageView>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bsL-Ia-Xig">
+                        <rect key="frame" x="108" y="186" width="35" height="26"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <state key="normal" title="Button"/>
-                        <buttonConfiguration key="configuration" style="filled" title="Play"/>
+                        <buttonConfiguration key="configuration" style="plain" title=""/>
                         <connections>
-                            <action selector="playButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="4ro-DT-Gq9"/>
+                            <action selector="playButtonTapped:" destination="gTV-IL-0wX" eventType="touchUpInside" id="PzX-fa-Zgu"/>
                         </connections>
                     </button>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <color key="backgroundColor" name="AccentColor"/>
-            <size key="customSize" width="148" height="216"/>
             <connections>
-                <outlet property="imageView" destination="EPi-PO-3n1" id="VhV-Xh-YzS"/>
-                <outlet property="nameLabel" destination="IVu-8z-BMt" id="Zai-vq-PkS"/>
-                <outlet property="playButton" destination="xA4-IP-HJN" id="e8H-HR-GOV"/>
+                <outlet property="imageView" destination="HED-Da-JtR" id="isE-BJ-idh"/>
+                <outlet property="nameLabel" destination="4X4-VL-Zdk" id="rtU-gr-8Mf"/>
+                <outlet property="playButton" destination="bsL-Ia-Xig" id="DHa-Fi-jkY"/>
             </connections>
-            <point key="canvasLocation" x="163.35877862595419" y="16.197183098591552"/>
+            <point key="canvasLocation" x="138.93129770992365" y="19.718309859154932"/>
         </collectionViewCell>
     </objects>
     <resources>
-        <namedColor name="AccentColor">
-            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
+        <image name="volume.2.fill" catalog="system" width="128" height="88"/>
     </resources>
 </document>

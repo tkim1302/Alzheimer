@@ -6,15 +6,21 @@
 //
 
 import UIKit
-import CoreData
 import UserNotifications
+import CoreData
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
-    var window: UIWindow?
-
+    func registerForPushNotifications() {//requesting notification permission
+        UNUserNotificationCenter.current()
+            .requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
+                print("Permission granted: \(granted)")
+                guard granted else { return }
+                self.getNotificationSettings()
+            }
+    }
     lazy var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "AlzheimerData")
         container.loadPersistentStores(completionHandler: { (storeDescription, error) in
@@ -24,27 +30,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         return container
     }()
-    
-    func saveContext () {
-        let context = persistentContainer.viewContext
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                let nserror = error as NSError
-                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-            }
-        }
-    }
-    
-    func registerForPushNotifications() {//requesting notification permission
-        UNUserNotificationCenter.current()
-            .requestAuthorization(options: [.alert, .sound, .badge]) { granted, _ in
-                print("Permission granted: \(granted)")
-                guard granted else { return }
-                self.getNotificationSettings()
-            }
-    }
     
     func getNotificationSettings() {
         UNUserNotificationCenter.current().getNotificationSettings { settings in
@@ -68,6 +53,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+    }
+    func saveContext () {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
+        }
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) { //get device token in order to send notification to that token

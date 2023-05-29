@@ -10,6 +10,7 @@ class AlbumCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var playButton: UIButton!
+    
     var audioFilename: String?
 
     override func awakeFromNib() {
