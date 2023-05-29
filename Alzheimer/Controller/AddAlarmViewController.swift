@@ -20,11 +20,10 @@ class AddAlarmViewController: UIViewController{
         super.viewDidLoad()
         view.backgroundColor = .white
         timePicker.datePickerMode = .time
-        //label.text  =  models[0]
-        self.hideKeyboard()
+        self.hideKeyboard() //hiding keyboard function when user tapped any where else on the screen
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //let user to input data and set it in userDefaults.
         if segue.identifier == "goBackToTaskView" {
             let userDefaults = UserDefaults.standard
             let formatter = DateFormatter()
@@ -47,7 +46,7 @@ class AddAlarmViewController: UIViewController{
             taskModels.append(taskString)
             
             UserDefaults.standard.set(timeModels, forKey: "Models")
-            UserDefaults.standard.set(taskModels, forKey: "Tasks") // Fix the key to "Tasks"
+            UserDefaults.standard.set(taskModels, forKey: "Tasks")
             userDefaults.synchronize()
         }
     }

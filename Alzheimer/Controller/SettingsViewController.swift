@@ -36,8 +36,6 @@ class SettingsViewController: UIViewController, UITextFieldDelegate{
         bloodTypePicker.dataSource = self
         bloodTypePicker.delegate = self
         dobButton.datePickerMode = .date
-
-            
         dobButton.maximumDate = Date()
         dobButton.addTarget(self, action: #selector(dateOfBirthButton(_:)), for: .valueChanged)
     }
@@ -45,11 +43,12 @@ class SettingsViewController: UIViewController, UITextFieldDelegate{
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?){
         if segue.identifier == "goBackToMain"{
-            let VC = segue.destination as! ViewController
+            //let VC = segue.destination as! ViewController
             saveUserData()
             let dateFormatter = DateFormatter()
             let selectedBType = bloodTypePicker.selectedRow(inComponent: 0)
             
+            //checks if there is empty text field
             if name.text?.isEmpty ?? true {
                 let alertController = UIAlertController(title: "Empty Name", message: "Please enter a name.", preferredStyle: .alert)
                 let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -71,25 +70,14 @@ class SettingsViewController: UIViewController, UITextFieldDelegate{
                 present(alertController, animated: true, completion: nil)
                 return
             }
-           
+           //set the data that user typed to userDefaults.
             UserDefaults.standard.set(name.text, forKey: "name")
             UserDefaults.standard.set(homeAddress.text, forKey: "homeAddress")
             UserDefaults.standard.set(emergencyContact.text, forKey: "emergencyContact")
             UserDefaults.standard.set(dateFormatter.string(from: dobButton.date), forKey: "dob")
             UserDefaults.standard.set(bloodTypes[selectedBType], forKey: "bloodType")
-            
-            
-            
-//            VC.homeAddress = homeAddress.text!
-//            VC.emergencyContact = emergencyContact.text!
-//            
-//            dateFormatter.dateStyle = .short
-//            VC.dob = dateFormatter.string(from: dobButton.date)
-//            VC.bloodType = bloodTypes[selectedBType]
         }
     }
-   
-    
     
     
     @IBAction func saveButton(_ sender: Any) {
@@ -102,22 +90,17 @@ class SettingsViewController: UIViewController, UITextFieldDelegate{
     
     
     
-    
-    func saveUserData() {
+    func saveUserData() { //saves user data in userDefaults
         let userDefaults = UserDefaults.standard
         
-        // Save the user data using the specified keys
         userDefaults.set(name.text, forKey: "Name")
         userDefaults.set(homeAddress.text, forKey: "HomeAddress")
         userDefaults.set(emergencyContact.text, forKey: "EmergencyContact")
         userDefaults.set(dobButton.date, forKey: "DateOfBirth")
         userDefaults.set(bloodTypePicker.selectedRow(inComponent: 0), forKey: "BloodTypeIndex")
         
-        // Synchronize the user defaults
         userDefaults.synchronize()
     }
-    
-    
 }
 
 extension SettingsViewController: UIPickerViewDataSource{
@@ -136,13 +119,12 @@ extension SettingsViewController: UIPickerViewDelegate{
     }
 }
 
-extension UIViewController {
+extension UIViewController { //this function is for hiding keyboard when user don't want it and tap anywhere else on the screen
     func hideKeyboard() {
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
 
     }
-
    @objc func dismissKeyboard() {
         view.endEditing(true)
     }

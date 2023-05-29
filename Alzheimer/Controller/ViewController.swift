@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var informationLabel: UILabel!
     
     @IBOutlet weak var emergencyCallText: UIButton!
+    
     var name = "N/A"
     var homeAddress = "N/A"
     var emergencyContact = "N/A"
@@ -20,13 +21,11 @@ class ViewController: UIViewController {
     var bloodType = "N/A"
     let bloodTypes = ["A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-"]
     
-    override func viewDidLoad() {
+    override func viewDidLoad() {//gets data from userDefaults and display it
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-        
+         
         let userDefaults = UserDefaults.standard
         
-        // Retrieve the stored user data from UserDefaults
         if let name = userDefaults.string(forKey: "Name") {
             self.name = name
         }
@@ -69,7 +68,7 @@ class ViewController: UIViewController {
     @IBAction func goToSettingsButton(_ sender: Any) {
     }
     
-    @IBAction func emergencyCallAction(_ sender: UIButton) {
+    @IBAction func emergencyCallAction(_ sender: UIButton) {//calling function that let user to call to the number they set
         if let url = NSURL(string: "tel://" + "\(emergencyContact)"),
            UIApplication.shared.canOpenURL(url as URL){
             UIApplication.shared.open(url as URL, options: [:], completionHandler: nil)

@@ -16,7 +16,7 @@ class RepeatingTaskViewController: UIViewController, UITableViewDelegate, UITabl
         repeatingTask.dataSource = self
         
         
-        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, error in
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { granted, error in //checking for notification authorization
             if granted {
                 print("Notification authorization granted")
             } else {
@@ -29,10 +29,10 @@ class RepeatingTaskViewController: UIViewController, UITableViewDelegate, UITabl
         super.viewWillAppear(animated)
         reloadData()
         
-        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonPressed))
+        let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonPressed)) //setting the top left button as 'back'
         navigationItem.leftBarButtonItem = backButton
         
-        for row in 0..<models.count {
+        for row in 0..<models.count { //making sure the newly added switch(which is on in default) is working as expected
             let switchKey = "SwitchValue_\(row)"
             let switchValue = UserDefaults.standard.object(forKey: switchKey) as? Bool
             if let switchControl = repeatingTask.cellForRow(at: IndexPath(row: row, section: 0))?.accessoryView as? UISwitch {
@@ -42,7 +42,7 @@ class RepeatingTaskViewController: UIViewController, UITableViewDelegate, UITabl
         }
     }
     
-    func reloadData() {
+    func reloadData() {//reloading data
         if let storedTimeModels = UserDefaults.standard.stringArray(forKey: "Models"),
            let storedTaskModels = UserDefaults.standard.stringArray(forKey: "Tasks"),
            storedTimeModels.count == storedTaskModels.count {
@@ -59,15 +59,15 @@ class RepeatingTaskViewController: UIViewController, UITableViewDelegate, UITabl
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = repeatingTask.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         
-        cell.textLabel?.text = tasks[indexPath.row]
-        cell.detailTextLabel?.text = models[indexPath.row]
+        cell.textLabel?.text = tasks[indexPath.row]//title of a cell is task
+        cell.detailTextLabel?.text = models[indexPath.row]//subtitle of a cell is time
         
         cell.textLabel?.font = UIFont(name: "Arial", size: 22)
-        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 16)
+        cell.detailTextLabel?.font = UIFont(name: "Arial", size: 18)
         
         if repeatingTask.isEditing { //hide the switch when editing
             cell.accessoryView = nil
-        } else {
+        } else {//make switches
             let switchKey = "SwitchValue_\(indexPath.row)"
             let switchValue = UserDefaults.standard.object(forKey: switchKey) as? Bool
             
@@ -76,19 +76,10 @@ class RepeatingTaskViewController: UIViewController, UITableViewDelegate, UITabl
             let switchControl = UISwitch()
             
             switchControl.isOn = defaultValue
-            
-
             switchControl.addTarget(self, action: #selector(switchValueChanged(_:)), for: .valueChanged)
-            
-            
             switchControl.frame = CGRect(x: cell.contentView.frame.size.width - switchControl.frame.size.width - 16, y: (cell.contentView.frame.size.height - switchControl.frame.size.height) / 2, width: switchControl.frame.size.width, height: switchControl.frame.size.height)
-            
-           
             switchControl.tag = indexPath.row
-            
-           
             cell.accessoryView = switchControl
-            
             switchValueChanged(switchControl)
         }
         
@@ -105,7 +96,6 @@ class RepeatingTaskViewController: UIViewController, UITableViewDelegate, UITabl
         if switchValue {
             let timeModel = models[rowIndex]
             let taskModel = tasks[rowIndex]
-            
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "HH:mm"
             
@@ -126,7 +116,7 @@ class RepeatingTaskViewController: UIViewController, UITableViewDelegate, UITabl
             
             if let currentHour = currentComponents.hour, let targetHour = targetComponents.hour {
                 if currentHour > targetHour || (currentHour == targetHour && currentComponents.minute! > targetComponents.minute!) {
-                    // If the target time has already passed today, schedule it for tomorrow
+                    // If the target time already passed today, schedule it for tomorrow
                     triggerComponents.day = calendar.component(.day, from: now) + 1
                 } else {
                     // Schedule it for today
@@ -140,7 +130,7 @@ class RepeatingTaskViewController: UIViewController, UITableViewDelegate, UITabl
                 content.body = taskModel
                 content.sound = UNNotificationSound.default
                 
-                let request = UNNotificationRequest(identifier: taskModel, content: content, trigger: trigger)
+                let request = UNNotificationRequest(identifier: taskModel, content: content, trigger: trigger)//checking if notification is added to the set time
                 UNUserNotificationCenter.current().add(request) { error in
                     if let error = error {
                         print("Error adding notification: \(error.localizedDescription)")
@@ -154,39 +144,34 @@ class RepeatingTaskViewController: UIViewController, UITableViewDelegate, UITabl
             cancelNotification(forTask: taskModel)
         }
     }
-
-
-
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Remove the item from the models array
+        if editingStyle == .delete { //delete cells
             models.remove(at: indexPath.row)
             tasks.remove(at: indexPath.row)
-            // Delete the corresponding row from the table view
+            //delete the data corresponding to cell
             UserDefaults.standard.set(models, forKey: "Models")
             UserDefaults.standard.set(tasks, forKey: "Tasks")
             tableView.deleteRows(at: [indexPath], with: .fade)
             
-            // Update the models array in UserDefaults
             reloadData()
         }
     }
     
-    @objc func addButtonTapped() {
+    @objc func addButtonTapped() {//when add button is tapped, it goes to "AddAlarmViewController"
         guard let addAlarmViewController = storyboard?.instantiateViewController(withIdentifier: "AddAlarmViewController") as? AddAlarmViewController else {
             fatalError("Error: Failed to instantiate AddAlarmViewController")
         }
         navigationController?.pushViewController(addAlarmViewController, animated: true)
     }
     
-    @objc func backButtonPressed() {
+    @objc func backButtonPressed() { //action when back button is pressed
         if let viewController = navigationController?.viewControllers.first(where: { $0 is ViewController }) {
             navigationController?.popToViewController(viewController, animated: true)
         }
     }
     
-    @IBAction func tapEdit() {
+    @IBAction func tapEdit() {//actions when edit button is tapped, edit button changes to "done".
         let addButton = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addButtonTapped))
         let backButton = UIBarButtonItem(title: "Back", style: .plain, target: self, action: #selector(backButtonPressed))
         
@@ -201,14 +186,13 @@ class RepeatingTaskViewController: UIViewController, UITableViewDelegate, UITabl
             repeatingTask.isEditing = true
         }
     }
-    func addNotification(at time: TimeInterval, forTask task: String) {
+    func addNotification(at time: TimeInterval, forTask task: String) { //adding notification with title,body and sound settings
         let content = UNMutableNotificationContent()
         content.title = "Alarm"
         content.body = task
         content.sound = UNNotificationSound.default
         
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: time, repeats: false)
-        
         let request = UNNotificationRequest(identifier: task, content: content, trigger: trigger)
         
         UNUserNotificationCenter.current().add(request) { error in
@@ -219,7 +203,7 @@ class RepeatingTaskViewController: UIViewController, UITableViewDelegate, UITabl
             }
         }
     }
-    func cancelNotification(forTask task: String) {
+    func cancelNotification(forTask task: String) { //canceling notification
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [task])
     }
     
