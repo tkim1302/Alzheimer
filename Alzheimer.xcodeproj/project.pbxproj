@@ -15,7 +15,8 @@
 		2B05FA422A1B81FB004191D2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B05FA402A1B81FB004191D2 /* LaunchScreen.storyboard */; };
 		2B05FA4F2A1B8E01004191D2 /* MemoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05FA4E2A1B8E01004191D2 /* MemoryViewController.swift */; };
 		2B05FA512A1B8E1B004191D2 /* RepeatingTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05FA502A1B8E1B004191D2 /* RepeatingTaskViewController.swift */; };
-		2B05FA562A1B9402004191D2 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B05FA552A1B9402004191D2 /* MainViewController.swift */; };
+		2B6198472A1CD0510087F7AA /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6198462A1CD0510087F7AA /* SettingsViewController.swift */; };
+		2B61984E2A20C9660087F7AA /* AddAlarmViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B61984D2A20C9660087F7AA /* AddAlarmViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +30,9 @@
 		2B05FA432A1B81FB004191D2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2B05FA4E2A1B8E01004191D2 /* MemoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryViewController.swift; sourceTree = "<group>"; };
 		2B05FA502A1B8E1B004191D2 /* RepeatingTaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTaskViewController.swift; sourceTree = "<group>"; };
-		2B05FA552A1B9402004191D2 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		2B6198462A1CD0510087F7AA /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		2B61984D2A20C9660087F7AA /* AddAlarmViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddAlarmViewController.swift; sourceTree = "<group>"; };
+		2BD2F9C72A2466FE00981E61 /* Alzheimer.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Alzheimer.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +65,7 @@
 		2B05FA342A1B81FA004191D2 /* Alzheimer */ = {
 			isa = PBXGroup;
 			children = (
+				2BD2F9C72A2466FE00981E61 /* Alzheimer.entitlements */,
 				2B05FA492A1B8D8C004191D2 /* Model */,
 				2B05FA4B2A1B8DA6004191D2 /* Controller */,
 				2B05FA4A2A1B8D97004191D2 /* View */,
@@ -95,7 +99,8 @@
 				2B05FA392A1B81FA004191D2 /* ViewController.swift */,
 				2B05FA4E2A1B8E01004191D2 /* MemoryViewController.swift */,
 				2B05FA502A1B8E1B004191D2 /* RepeatingTaskViewController.swift */,
-				2B05FA552A1B9402004191D2 /* MainViewController.swift */,
+				2B6198462A1CD0510087F7AA /* SettingsViewController.swift */,
+				2B61984D2A20C9660087F7AA /* AddAlarmViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,10 +178,11 @@
 			files = (
 				2B05FA3A2A1B81FA004191D2 /* ViewController.swift in Sources */,
 				2B05FA362A1B81FA004191D2 /* AppDelegate.swift in Sources */,
+				2B61984E2A20C9660087F7AA /* AddAlarmViewController.swift in Sources */,
 				2B05FA382A1B81FA004191D2 /* SceneDelegate.swift in Sources */,
-				2B05FA562A1B9402004191D2 /* MainViewController.swift in Sources */,
 				2B05FA512A1B8E1B004191D2 /* RepeatingTaskViewController.swift in Sources */,
 				2B05FA4F2A1B8E01004191D2 /* MemoryViewController.swift in Sources */,
+				2B6198472A1CD0510087F7AA /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,8 +327,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Alzheimer/Alzheimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J5ZHQD5WJP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Alzheimer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -330,6 +338,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -348,8 +357,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Alzheimer/Alzheimer.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = J5ZHQD5WJP;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Alzheimer/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -357,6 +368,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
