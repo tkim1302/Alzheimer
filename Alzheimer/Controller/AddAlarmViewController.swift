@@ -52,10 +52,7 @@ class AddAlarmViewController: UIViewController{
     }
     
     
-    @IBAction func button(_ sender: UIButton) {
-        UserDefaults.standard.removeObject(forKey: "Models")
-        UserDefaults.standard.removeObject(forKey: "Tasks")
-    }
+   
     
 }
 

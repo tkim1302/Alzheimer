@@ -134,14 +134,11 @@ class MemoryViewController: UIViewController, UICollectionViewDelegate, UICollec
             }
             
             let deleteAction = UIAlertAction(title: "Delete Person", style: .destructive)
-            
-            let addPictureAction = UIAlertAction(title: "Add Pictures", style: .default)
-            
+                        
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
             
             alertController.addAction(addPersonAction)
             alertController.addAction(deleteAction)
-            alertController.addAction(addPictureAction)
             alertController.addAction(cancelAction)
             
             present(alertController, animated: true)
